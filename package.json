@@ -1,7 +1,7 @@
 {
-  "name": "boilerplate",
+  "name": "todoapp",
   "version": "1.0.0",
-  "description": "Boilerplate for Projects",
+  "description": "A Todo App Project",
   "main": "index.js",
   "scripts": {
     "start": "node server",

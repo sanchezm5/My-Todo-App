@@ -1,5 +1,8 @@
 const db = require('../server/db/db')
+const {Tasks, Categories} = require('../server/db/index')
+
 const {green, red} = require('chalk')
+
 
 const seed = async () => {
   await db.sync({force: true})
@@ -16,3 +19,5 @@ seed()
     console.error(err)
     db.close()
   })
+
+module.exports = seed
