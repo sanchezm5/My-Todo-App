@@ -7,9 +7,9 @@ const Categories = require('../db/Categories')
 router.get('/', async (req, res, next) => {
     try {
         const tasks = await Tasks.findAll();
-        if(!tasks) res.json([]);
+        if (!tasks) res.json([]);
         else res.json(tasks);
-    } catch(err) {
+    } catch (err) {
         next(err)
     }
 })

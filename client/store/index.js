@@ -1,15 +1,17 @@
-// `combineReducers` is not currently being used...but it should!
-// When you're ready to use it, un-comment the line below!
+import { createStore, applyMiddleware, combineReducers } from 'redux';
+import thunkMiddleware from 'redux-thunk';
+import { createLogger } from 'redux-logger';
+import tasks from './tasks'
+import categories from './categories'
+import axios from 'axios'
 
-// import {combineReducers} from 'redux'
+const reducer = combineReducers({tasks, categories})
+const store = createStore(
+  reducer,
+  applyMiddleware(
+    thunkMiddleware.withExtraArgument({axios}),
+    createLogger({collapsed: true})
+  )
+);
 
-const initialState = {}
-
-const rootReducer = (state = initialState, action) => {
-  switch (action.type) {
-    default:
-      return state
-  }
-}
-
-export default rootReducer
+export default store
