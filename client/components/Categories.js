@@ -10,14 +10,14 @@ class Categories extends Component {
   render() {
     const {categories} = this.props;
     return (
-      <div>
+      <div className="categories-container">
         {
           categories.map((category) => (
             (
-              <div key={category.id}>
+              <div key={category.id} className="box">
                 <div>
-                  <img src={category.imageUrl} />
-                  <h3>{category.title}</h3>
+                  <img src={category.imageUrl} className="icon" />
+                  <h3 className="icontitle">{category.title}</h3>
                 </div>
               </div>
             )

@@ -1,3 +1,4 @@
+'use strict'
 const db = require('./db')
 const Tasks = require('./Tasks')
 const Categories = require('./Categories')
