@@ -25,4 +25,19 @@ router.get('/:taskId',  async (req, res, next) => {
   }
 });
 
+//ADD TASK /api/task
+router.post('/', async (req, res, next) => {
+  try {
+    const task = await Tasks.create({
+      task: req.body.task,
+      dueDate: req.body.dueDate,
+      notes: req.body.notes,
+      categoryId: +req.body.categoryId
+    });
+    res.status(201).send(task);
+  } catch (err) {
+      next(err);
+  }
+});
+
 module.exports = router

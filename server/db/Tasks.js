@@ -9,11 +9,6 @@ const Tasks = db.define('tasks', {
             notEmpty: true
         }
     },
-    //******optional for later********
-    // imageUrl: {
-    //     type: Sequelize.STRING,
-    //     defaultValue: '/defaultImage.png',
-    // },
     dueDate: {
         type: Sequelize.DATEONLY,
         allowNull: false,
