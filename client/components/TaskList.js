@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
-import { connect } from 'react-redux'
+import {connect} from 'react-redux'
+import {Link} from 'react-router-dom'
 import {fetchTasks} from '../store/tasks'
 
 class TaskList extends Component {
@@ -9,6 +10,7 @@ class TaskList extends Component {
 
   render() {
     const {tasks} = this.props;
+    console.log('tasks', tasks)
     return (
       <div id="todo-container">
         <ul>
@@ -17,7 +19,9 @@ class TaskList extends Component {
             (
               <div key={task.id} id="textbox" style={{clear: 'both'}}>
                 <div id="taskbox">
-                <p className="alignleft">Task: {task.task}</p>
+                <Link to={`/tasks/${task.id}`}>
+                  <p className="alignleft">Task: {task.task}</p>
+                </Link>
                 <p className="alignright">Due Date: {task.dueDate.slice(5, 7) + '/' + task.dueDate.slice(8, 11) + '/' + task.dueDate.slice(0, 4) }</p>
                 </div>
               </div>

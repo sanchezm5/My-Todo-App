@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import {Link} from 'react-router-dom'
 import { connect } from 'react-redux'
 import {fetchCategories} from '../store/categories'
 
@@ -16,8 +17,10 @@ class Categories extends Component {
             (
               <div key={category.id} className="box">
                 <div>
-                  <img src={category.imageUrl} className="icon" />
-                  <h3 className="icontitle">{category.title}</h3>
+                  <img src={category.imageUrl} />
+                  <Link to={`/categories/${category.id}`}>
+                    <h3>{category.title}</h3>
+                  </Link>
                 </div>
               </div>
             )

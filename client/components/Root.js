@@ -1,8 +1,12 @@
 import React, {Component} from 'react'
 import { Link, Route } from 'react-router-dom'
 
-import TaskList from './TaskList'
-import Categories from './Categories'
+import {
+  TaskList,
+  Categories,
+  SingleCategory,
+  SingleTask,
+} from '../components'
 
 class Root extends Component {
   render() {
@@ -22,10 +26,12 @@ class Root extends Component {
           </button>
         </nav>
 
-          <h1>MY TODO LIST</h1>
+          <h1>MY TO-DO APP</h1>
 
         <Route exact path="/tasks" component={TaskList} />
+        <Route path="/tasks/:taskId" component={SingleTask} />
         <Route exact path="/categories" component={Categories} />
+        <Route path="/categories/:categoryId" component={SingleCategory} />
       </div>
     )
   }

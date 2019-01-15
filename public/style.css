@@ -3,18 +3,15 @@
     padding: 0;
 }
 html {
-    font-size: 18px;
+    font-size: 22px;
     font-family: sans-serif;
     background: url(Todo-PostIts.jpg);
     background-size: cover;
 }
 nav {
-    
     background-image: linear-gradient(to right, rgb(226, 0, 139), lightseagreen);
     height: 100px;
-    
     width: 100vw;
-    
 }
 .alignleft {
     float: left;
@@ -75,4 +72,22 @@ img {
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 175px 175px 175px;
     grid-auto-flow: row;
+}
+img.icon {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 25px;
+    width: 128px;
+    height: 128px;
+}
+.icontitle, .center {
+    text-align: center;
+    margin-top: 10px;
+}
+.task-info {
+    padding: 25px 25px;
+}
+.task-info:last-child {
+    background-color: lightgrey;
 }

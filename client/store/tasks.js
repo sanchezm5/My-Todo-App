@@ -8,9 +8,11 @@ const initialState = {
 
 //Action Types
 const GET_TASKS = 'GET_TASKS';
+const GET_TASK = 'GET_TASK';
 
 //Action Creators
 const getTasks = tasks => ({type: GET_TASKS, tasks})
+const getTask = task => ({type: GET_TASK, task})
 
 //Thunk Action Creators
 export const fetchTasks = () => async dispatch => {
@@ -22,11 +24,21 @@ export const fetchTasks = () => async dispatch => {
   }
 }
 
+export const fetchTask = (taskId) => async dispatch => {
+  try {
+    const {data} = await axios.get(`/api/tasks/${taskId}`);
+    dispatch(getTask(data));
+  } catch (err) {
+    console.log(err);
+  }
+}
 //Reducer
 export default function(state = initialState, action) {
   switch (action.type) {
     case GET_TASKS:
       return {...state, tasks: action.tasks};
+    case GET_TASK:
+      return {...state, task: action.task};
     default:
       return state;
   }
