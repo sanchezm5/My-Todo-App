@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
 import { connect } from 'react-redux'
 import {fetchCategories} from '../store/categories'
+import CategoryForm from './CategoryForm'
 
 class Categories extends Component {
   async componentDidMount () {
@@ -12,6 +13,7 @@ class Categories extends Component {
     const {categories} = this.props;
     return (
       <div className="categories-container">
+        <div><CategoryForm /></div>
         {
           categories.map((category) => (
             (
@@ -19,7 +21,7 @@ class Categories extends Component {
                 <div>
                   <img src={category.imageUrl} />
                   <Link to={`/categories/${category.id}`}>
-                    <h3>{category.title}</h3>
+                    <h4>{category.title}</h4>
                   </Link>
                 </div>
               </div>

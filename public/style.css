@@ -69,15 +69,15 @@ img {
     padding-block-end: 15px;
     padding-inline-start: 20px;
     padding-inline-end: 20px;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 175px 175px 175px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 150px 150px 150px 150px;
     grid-auto-flow: row;
 }
 img.icon {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 25px;
+    margin-top: 20px;
     width: 128px;
     height: 128px;
 }
