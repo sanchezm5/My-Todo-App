@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {fetchTasks} from '../store/tasks'
+import TaskForm from '../components/TaskForm'
 
 class TaskList extends Component {
   async componentDidMount () {
@@ -13,6 +14,7 @@ class TaskList extends Component {
     console.log('tasks', tasks)
     return (
       <div id="todo-container">
+      <div><TaskForm /></div>
         <ul>
         {
           tasks.map((task) => (
