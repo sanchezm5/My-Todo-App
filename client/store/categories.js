@@ -10,11 +10,13 @@ const initialState = {
 const GET_CATEGORIES = 'GET_CATEGORIES'
 const GET_CATEGORY = 'GET_CATEGORY'
 const ADD_CATEGORY = 'ADD_CATEGORY'
+const REMOVE_CATEGORY = 'REMOVE_CATEGORY'
 
 //Action Creators
 const getCategories = categories => ({type: GET_CATEGORIES, categories})
 const getCategory = category => ({type: GET_CATEGORY, category})
 const addCategory = category => ({type: ADD_CATEGORY, category})
+const removeCategory = categoryId => ({type: REMOVE_CATEGORY, categoryId})
 
 //Thunk Action Creators
 export const fetchCategories = () => async dispatch => {
@@ -44,6 +46,15 @@ export const postCategory = (category) => async dispatch => {
   }
 }
 
+export const deleteCategory = (categoryId) => async dispatch => {
+  try {
+    await axios.delete(`/api/categories/${categoryId}`);
+    dispatch(removeCategory(categoryId));
+  } catch (err) {
+    console.log(err);
+  }
+}
+
 //Reducer
 export default function(state = initialState, action) {
   switch (action.type) {
@@ -53,6 +64,8 @@ export default function(state = initialState, action) {
       return {...state, category: action.category};
     case ADD_CATEGORY:
       return {...state, categories: [...state.categories, action.category]};
+    case REMOVE_CATEGORY:
+      return {...state, categories: state.categories.filter(category => category.id !== action.categoryId)};
     default:
       return state;
   }

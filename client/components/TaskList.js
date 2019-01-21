@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
-import {fetchTasks} from '../store/tasks'
+import {fetchTasks, deleteTask} from '../store/tasks'
 import TaskForm from '../components/TaskForm'
 
 class TaskList extends Component {
@@ -20,6 +20,7 @@ class TaskList extends Component {
           tasks.map((task) => (
             (
               <div key={task.id} id="textbox" style={{clear: 'both'}}>
+                <button onClick={() => this.props.removeTask(task.id)} className="alignright" type="button">X</button>
                 <div id="taskbox">
                 <Link to={`/tasks/${task.id}`}>
                   <p className="alignleft">Task: {task.task}</p>
@@ -41,7 +42,8 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  fetchTasks: () => dispatch(fetchTasks())
+  fetchTasks: () => dispatch(fetchTasks()),
+  removeTask: (taskId) => dispatch(deleteTask(taskId))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(TaskList);
