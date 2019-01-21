@@ -7,6 +7,8 @@ html {
     font-family: sans-serif;
     background: url(Todo-PostIts.jpg);
     background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 nav {
     background-image: linear-gradient(to right, rgb(226, 0, 139), lightseagreen);

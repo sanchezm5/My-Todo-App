@@ -40,4 +40,16 @@ router.post('/', async (req, res, next) => {
   }
 });
 
+//DELETE TASK /api/tasks/:taskId
+router.delete('/:taskId', async (req, res, next) => {
+  try {
+    await Tasks.destroy({
+      where: {id: req.params.taskId}
+    });
+    res.status(204).send();
+  } catch (err) {
+    next(err);
+  }
+})
+
 module.exports = router

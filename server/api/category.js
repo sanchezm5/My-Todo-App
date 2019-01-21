@@ -37,4 +37,16 @@ router.post('/', async (req, res, next) => {
   }
 });
 
+//DELETE CATEGORY /api/categories/:categoryId
+router.delete('/:categoryId', async (req, res, next) => {
+  try {
+    await Categories.destroy({
+      where: {id: req.params.categoryId}
+    });
+    res.status(204).send();
+  } catch (err) {
+    next(err);
+  }
+});
+
 module.exports = router

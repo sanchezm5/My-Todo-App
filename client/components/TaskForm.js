@@ -47,9 +47,6 @@ class TaskForm extends Component {
   }
 
   render() {
-    console.log('props', this.props)
-    console.log('event.target.value = ', event.target.value)
-    console.log('this.state = ', this.state)
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
